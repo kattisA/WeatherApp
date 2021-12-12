@@ -58,14 +58,11 @@ export default function App() {
   return (
       <div className="App">
           <h1>Weather App</h1>
-          <main>
               {(typeof data.approvedTime != 'undefined') ? (
                   <Weather weatherData={mapWeatherData(data)}/>
               ) : (
                   <div></div>
               )}
-
-          </main>
           <footer>
               Page created by Katarina Lejonlid
           </footer>

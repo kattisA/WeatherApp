@@ -5,16 +5,27 @@ import moment from 'moment';
 
 
 const CardExampleCard = ({weatherData}) => (
+    <div className="main">
     <Card>
         <Card.Content>
-            <Card.Header className="header">Uppsala</Card.Header>
-            <p>Temperature: {weatherData.temperature} &deg;C</p>
-            <p>Humidity: { weatherData.humidity } % </p>
-            <p>Precipitation: { weatherData.precipitation }</p>
-            <p>Day: {moment().format('dddd')}</p>
-            <p>Date: {moment().format('LL')}</p>
+            <Card.Header className="header"> City name: Uppsala</Card.Header>
+            <div className="flex">
+                <p className="day">Day: {moment().format('dddd')}</p>
+                <p className="day">Date: {moment().format('LL')}</p>
+            </div>
+            <div className="flex">
+                <p className="temp">Temperature: {weatherData.temperature} &deg;C</p>
+                <p className="temp">Humidity: { weatherData.humidity } % </p>
+                <p className="temp">Precipitation: { weatherData.precipitation }</p>
+            </div>
+
+
+
+
+
         </Card.Content>
     </Card>
+    </div>
 )
 
 export default CardExampleCard;
