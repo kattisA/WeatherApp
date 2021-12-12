@@ -2,6 +2,17 @@ import './App.css';
 import React, {useEffect, useState} from "react";
 import Weather from './components/weather';
 
+const precipitationCats = [
+    {level: 0, description: "No precipitation"},
+    {level: 1, description: "Snow"},
+    {level: 2, description: "Snow and rain"},
+    {level: 3, description: "Rain"},
+    {level: 4, description: "Drizzle"},
+    {level: 5, description: "Freezing rain"},
+    {level: 6, description: "Freezing drizzle"},
+]
+
+
 export default function App() {
 
     const [lat, setLat] = useState([]);
@@ -22,6 +33,7 @@ export default function App() {
                     if (Object.entries(result).length) {
                         const mappedData = mapWeatherData(result)
                         return mappedData
+
                     }
                 });
         }
@@ -32,9 +44,14 @@ export default function App() {
     }, [lat,long, data])
 
     function mapWeatherData(data) {
+        let precipitationLevel = data.timeSeries[0].parameters[1].values[0]
+        const precipitation = precipitationCats.find(pre => pre.level === precipitationLevel)
+        //precipitationCats.map()
+
         return {
             temperature: data.timeSeries[0].parameters[10].values[0],
-            humidity: data.timeSeries[0].parameters[15].values[0]
+            humidity: data.timeSeries[0].parameters[15].values[0],
+            precipitation: precipitation.description
         };
     }
 
