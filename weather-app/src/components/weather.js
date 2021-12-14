@@ -16,13 +16,11 @@ const CardExampleCard = ({weatherData}) => (
             <div className="flex">
                 <p className="temp">Temperature: {weatherData.temperature} &deg;C</p>
                 <p className="temp">Humidity: { weatherData.humidity } % </p>
+            </div>
+            <div className="flex">
+
                 <p className="temp">Precipitation: { weatherData.precipitation }</p>
             </div>
-
-
-
-
-
         </Card.Content>
     </Card>
     </div>
