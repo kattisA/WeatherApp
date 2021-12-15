@@ -2,6 +2,11 @@ import './App.css';
 import React, {useEffect, useState} from "react";
 import Weather from './components/weather';
 
+/**
+ * Written by Katarina Lejonlid
+ * API documentation for SMHI http://opendata.smhi.se/apidocs/metfcst/index.html
+ */
+
 const precipitationCats = [
     {level: 0, description: "No precipitation"},
     {level: 1, description: "Snow"},
@@ -40,16 +45,16 @@ export default function App() {
         fetchData();
         // console.log("Latitude is:", lat)
         // console.log("Longitude is:", long)
-        //console.log("vad är " + JSON.stringify(data))
+        // console.log("vad är " + JSON.stringify(data))
     }, [lat,long, data])
+
 
     function mapWeatherData(data) {
         let precipitationLevel = data.timeSeries[0].parameters[1].values[0]
         const precipitation = precipitationCats.find(pre => pre.level === precipitationLevel)
-        //precipitationCats.map()
-
+        // TODO Matcha på pcat = precipitation, t = temperature, r = relative humidity eftersom parameters arrayen ändras
         return {
-            temperature: data.timeSeries[0].parameters[10].values[0],
+            temperature: data.timeSeries[0].parameters[11].values[0],
             humidity: data.timeSeries[0].parameters[15].values[0],
             precipitation: precipitation.description
         };

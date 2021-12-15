@@ -1,17 +1,16 @@
 import React from 'react';
-import './styles.css';
-import { Card } from 'semantic-ui-react';
+//import './styles.css';
 import moment from 'moment';
+import {Card, CardContent, Typography} from "@material-ui/core";
 
 
-const CardExampleCard = ({weatherData}) => (
-    <div className="main">
+const WeatherCard = ({weatherData}) => (
+
     <Card>
-        <Card.Content>
-            <Card.Header className="header"> City name: Uppsala</Card.Header>
+        <CardContent>
+            <Typography variant="h4"> Uppsala City</Typography>
             <div className="flex">
-                <p className="day">Day: {moment().format('dddd')}</p>
-                <p className="day">Date: {moment().format('LL')}</p>
+                <p className="day">{moment().format('dddd')}, <span>{moment().format('LL')}</span></p>
             </div>
             <div className="flex">
                 <p className="temp">Temperature: {weatherData.temperature} &deg;C</p>
@@ -21,9 +20,8 @@ const CardExampleCard = ({weatherData}) => (
 
                 <p className="temp">Precipitation: { weatherData.precipitation }</p>
             </div>
-        </Card.Content>
+        </CardContent>
     </Card>
-    </div>
 )
 
-export default CardExampleCard;
+export default WeatherCard;
