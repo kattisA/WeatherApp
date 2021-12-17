@@ -54,7 +54,7 @@ export default function App() {
         const precipitation = precipitationCats.find(pre => pre.level === precipitationLevel)
         // TODO Matcha på pcat = precipitation, t = temperature, r = relative humidity eftersom parameters arrayen ändras
         return {
-            temperature: data.timeSeries[0].parameters[11].values[0],
+            temperature: data.timeSeries[0].parameters[10].values[0],
             humidity: data.timeSeries[0].parameters[15].values[0],
             precipitation: precipitation.description
         };
