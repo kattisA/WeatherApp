@@ -3,13 +3,16 @@ import React from 'react';
 import moment from 'moment';
 import {Card, CardContent, Typography, Grid } from "@material-ui/core";
 
+//TODO Explore material ui theme: https://mui.com/customization/color/
+
 var cardStyle = {
     display: 'block',
     width: '40vw',
     transitionDuration: '0.3s',
     height: '20vw',
-    borderRadius: 5,
-    backgroundColor: "#abd2e4"
+    borderRadius: 20,
+    backgroundColor: "#abd2e4",
+    padding: '20px'
 }
 
 var padding = {
@@ -20,31 +23,29 @@ const WeatherCard = ({weatherData}) => (
 
     <Card style={cardStyle}>
         <CardContent>
-            <Grid container direction="row" justify="space-between">
+            <Grid container direction="row" justifyContent="space-between">
                 <Grid item>
                     <Typography variant="h4" component="h2">
-                        Uppsala City
+                        Uppsala
                     </Typography>
+
                 </Grid>
                 <Grid item>
-                    {moment().format('dddd')}, {moment().format('LL')}
+                    <Typography variant="h5" component="h2">
+                        {moment().format('dddd')}, {moment().format('LL')}
+                    </Typography>
+                    <Typography variant="h5" component="h2" align="right">
+                        { weatherData.precipitation }
+                    </Typography>
                 </Grid>
             </Grid>
-            <Typography variant="h4" component="h3">
+            <Typography variant="h3" component="h3">
                 {weatherData.temperature} &deg;C
             </Typography>
+            <Typography variant="h5" component="h3">
+                Humidity { weatherData.humidity } %
+            </Typography>
 
-
-            <div className="flex">
-                <p className="day">{moment().format('dddd')}, <span>{moment().format('LL')}</span></p>
-            </div>
-            <div className="flex">
-                <p className="temp">Humidity: { weatherData.humidity } % </p>
-            </div>
-            <div className="flex">
-
-                <p className="temp">Precipitation: { weatherData.precipitation }</p>
-            </div>
         </CardContent>
     </Card>
 )
