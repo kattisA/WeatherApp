@@ -15,9 +15,9 @@ var cardStyle = {
     padding: '20px'
 }
 
-var padding = {
+/*var padding = {
     padding: "20px"
-}
+}*/
 
 const WeatherCard = ({weatherData}) => (
 

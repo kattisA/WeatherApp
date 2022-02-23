@@ -45,17 +45,16 @@ export default function App() {
         fetchData();
         // console.log("Latitude is:", lat)
         // console.log("Longitude is:", long)
-        // console.log("vad är " + JSON.stringify(data))
+        //console.log("vad är " + JSON.stringify(data))
     }, [lat,long, data])
 
 
     function mapWeatherData(data) {
-        let precipitationLevel = data.timeSeries[0].parameters[1].values[0]
+        let precipitationLevel = data.timeSeries[0].parameters.find((p) => p.name==='pcat').values[0]
         const precipitation = precipitationCats.find(pre => pre.level === precipitationLevel)
-        // TODO Matcha på pcat = precipitation, t = temperature, r = relative humidity eftersom parameters arrayen ändras
         return {
-            temperature: data.timeSeries[0].parameters[10].values[0],
-            humidity: data.timeSeries[0].parameters[15].values[0],
+            temperature: data.timeSeries[0].parameters.find((p) => p.name==='t').values[0],
+            humidity: data.timeSeries[0].parameters.find((p) => p.name==='r').values[0],
             precipitation: precipitation.description
         };
     }
