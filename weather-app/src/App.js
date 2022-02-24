@@ -17,7 +17,7 @@ const precipitationCats = [
     {level: 6, description: "Freezing drizzle"},
 ]
 
-//TODO Add array with weather situation name = Wsymb2 http://opendata.smhi.se/apidocs/metfcst/parameters.html#parameter-wsymb
+//TODO Add functionality for array with weather situation name = Wsymb2 http://opendata.smhi.se/apidocs/metfcst/parameters.html#parameter-wsymb
 
 
 export default function App() {
