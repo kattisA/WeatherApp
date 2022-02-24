@@ -1,6 +1,15 @@
 import './App.css';
 import React, {useEffect, useState} from "react";
 import Weather from './components/weather';
+import {getWeatherSituations} from "./components/weatherSituations";
+import WbSunnyIcon from '@material-ui/icons/WbSunny';
+import WbCloudyIcon from '@material-ui/icons/WbCloudy';
+import NightsStayOutlinedIcon from '@material-ui/icons/NightsStayOutlined';
+import WavesOutlinedIcon from '@material-ui/icons/WavesOutlined';
+import BeachAccessIcon from '@material-ui/icons/BeachAccess';
+import FlashOnIcon from '@material-ui/icons/FlashOn';
+import {styled} from "@material-ui/core";
+import {purple, yellow} from "@material-ui/core/colors";
 
 /**
  * Written by Katarina Lejonlid
@@ -16,6 +25,8 @@ const precipitationCats = [
     {level: 5, description: "Freezing rain"},
     {level: 6, description: "Freezing drizzle"},
 ]
+
+const weatherSituations = getWeatherSituations()
 
 //TODO Add functionality for array with weather situation name = Wsymb2 http://opendata.smhi.se/apidocs/metfcst/parameters.html#parameter-wsymb
 
@@ -50,14 +61,51 @@ export default function App() {
         //console.log("vad är " + JSON.stringify(data))
     }, [lat,long, data])
 
+    function getWeatherIcon(weatherSituationVal) {
+
+        switch (weatherSituationVal){
+            case 1:
+            case 2:
+            case 3:
+                return <WbCloudyIcon style={{ fill: '#F0F8FF' }} fontSize="large"/>
+            case 4:
+                return <NightsStayOutlinedIcon style={{ fill: '#696969'}} fontSize="large"/>
+            case 5:
+            case 6:
+                return <WbCloudyIcon style={{ fill: '#F0F8FF' }} fontSize="large"/>
+            case  7:
+                return <WavesOutlinedIcon style={{ fill: '#696969' }} fontSize="large"/>
+            case  8:
+            case  9:
+            case  10:
+                return <BeachAccessIcon style={{ fill: '#7B68EE' }} fontSize="large"/>
+            case  11:
+                return <FlashOnIcon style={{ fill: '#696969' }} fontSize="large"/>
+            case  12:
+            case  13:
+            case  14:
+                return <WbCloudyIcon style={{ fill: '#F0F8FF' }} fontSize="large"/>
+            case  15:
+            case  16:
+            case  17:
+            case  18:
+            case  19:
+            case  20:
+            default:
+        }
+    }
 
     function mapWeatherData(data) {
         let precipitationLevel = data.timeSeries[0].parameters.find((p) => p.name==='pcat').values[0]
         const precipitation = precipitationCats.find(pre => pre.level === precipitationLevel)
+        let weatherSituationVal = data.timeSeries[0].parameters.find((p) => p.name ==='Wsymb2').values[0]
+        const weatherSituation = weatherSituations.find(wea => wea.value ===weatherSituationVal)
         return {
             temperature: data.timeSeries[0].parameters.find((p) => p.name==='t').values[0],
             humidity: data.timeSeries[0].parameters.find((p) => p.name==='r').values[0],
-            precipitation: precipitation.description
+            precipitation: precipitation.description,
+            weatherSituation:weatherSituation.meaning,
+            weatherIcon: getWeatherIcon(weatherSituation.value)
         };
     }
 

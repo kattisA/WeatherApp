@@ -3,7 +3,7 @@ import React from 'react';
 import moment from 'moment';
 import {Card, CardContent, Typography, Grid } from "@material-ui/core";
 import {yellow} from "@material-ui/core/colors";
-import WbSunnyIcon from '@material-ui/icons/WbSunny';
+
 
 //TODO Explore material ui theme: https://mui.com/customization/color/
 
@@ -37,7 +37,12 @@ const WeatherCard = ({weatherData}) => (
                         {moment().format('dddd')}, {moment().format('LL')}
                     </Typography>
                     {/*//TODO Instead of sunny icon add icon depending on the weather situation sign*/}
-                    <WbSunnyIcon style={{ color: yellow[500] }} fontSize="large"/>
+                    <Typography align="right">
+                        { weatherData.weatherIcon }
+                    </Typography>
+                    <Typography variant="h5" component="h2" align="right">
+                        { weatherData.weatherSituation }
+                    </Typography>
                     <Typography variant="h5" component="h2" align="right">
                         { weatherData.precipitation }
                     </Typography>
