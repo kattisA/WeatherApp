@@ -3,7 +3,6 @@ import React, {useEffect, useState} from "react";
 import Weather from './components/weather';
 import {getWeatherSituations} from "./components/weatherSituations";
 
-import WbCloudyIcon from '@material-ui/icons/WbCloudy';
 import {
     WiNightClear,
     WiCloud,
@@ -13,7 +12,7 @@ import {
     WiRain,
     WiFog,
     WiCloudy,
-    WiDayCloudyHigh
+    WiDayCloudyHigh, WiSnowWind, WiSnow
 } from "weather-icons-react";
 
 /**
@@ -68,37 +67,49 @@ export default function App() {
 
     function getWeatherIcon(weatherSituationVal) {
 
-        switch (weatherSituationVal){
+        switch (weatherSituationVal) {
             case 1:
             case 2:
             case 3:
-                return <WiDayCloudyHigh style={{ fill: '#F0F8FF' }} size={50}/>
+                return <WiDayCloudyHigh style={{fill: '#F0F8FF'}} size={150}/>
             case 4:
-                return <WiNightClear style={{ fill: '#696969'}} size={50}/>
+                return <WiNightClear style={{fill: '#696969'}} size={150}/>
             case 5:
-                return <WiCloud style={{ fill: '#F0F8FF' }} size={50}/>
+                return <WiCloud style={{fill: '#F0F8FF'}} size={150}/>
             case 6:
-                return <WiCloudy style={{ fill: '#F0F8FF' }} size={50}/>
-            case  7:
-                return <WiFog style={{ fill: '#696969' }} size={50}/>
-            case  8:
-            case  9:
-                return <WiShowers style={{ fill: '#4682B4' }} size={50}/>
-            case  10:
-                return <WiRain style={{ fill: '#4682B4' }} size={50}/>
-            case  11:
-                return <WiThunderstorm style={{ fill: '#696969' }} size={50}/>
-            case  12:
-            case  13:
-            case  14:
-                return  <WiSleet style={{ fill: '#F0F8FF' }} size={50}/>
-            case  15:
-            case  16:
-            case  17:
-            case  18:
-            case  19:
-            case  20:
-            default:
+                return <WiCloudy style={{fill: '#F0F8FF'}} size={150}/>
+            case 7:
+                return <WiFog style={{fill: '#696969'}} size={150}/>
+            case 8:
+            case 9:
+                return <WiShowers style={{fill: '#4682B4'}} size={150}/>
+            case 10:
+                return <WiRain style={{fill: '#4682B4'}} size={150}/>
+            case 11:
+                return <WiThunderstorm style={{fill: '#696969'}} size={150}/>
+            case 12:
+            case 13:
+            case 14:
+                return <WiSleet style={{fill: '#F0F8FF'}} size={150}/>
+            case 15:
+            case 16:
+            case 17:
+                return <WiSnowWind style={{fill: '#F0F8FF'}} size={150}/>
+            case 18:
+                return <WiShowers style={{fill: '#F0F8FF'}} size={150}/>
+            case 19:
+            case 20:
+                return <WiRain style={{fill: '#4682B4'}} size={150}/>
+            case 21:
+                return <WiThunderstorm style={{fill: '#696969'}} size={150}/>
+            case 22:
+            case 23:
+            case 24:
+                return <WiSleet style={{fill: '#F0F8FF'}} size={150}/>
+            case 25:
+            case 26:
+            case 27:
+                return <WiSnow style={{fill: '#F0F8FF'}} size={150}/>
         }
     }
 
@@ -108,7 +119,7 @@ export default function App() {
         let weatherSituationVal = data.timeSeries[0].parameters.find((p) => p.name ==='Wsymb2').values[0]
         const weatherSituation = weatherSituations.find(wea => wea.value ===weatherSituationVal)
         return {
-            temperature: data.timeSeries[0].parameters.find((p) => p.name==='t').values[0],
+            temperature: Math.round(data.timeSeries[0].parameters.find((p) => p.name==='t').values[0]),
             humidity: data.timeSeries[0].parameters.find((p) => p.name==='r').values[0],
             precipitation: precipitation.description,
             weatherSituation:weatherSituation.meaning,
@@ -118,7 +129,7 @@ export default function App() {
 
   return (
       <div className="App">
-          <h1>Weather App</h1>
+          <h1>Today's Weather</h1>
               {(typeof data.approvedTime != 'undefined') ? (
                   <Weather weatherData={mapWeatherData(data)}/>
               ) : (
