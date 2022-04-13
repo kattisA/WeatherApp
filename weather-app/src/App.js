@@ -49,7 +49,7 @@ export default function App() {
                 setLat(position.latitude);
                 setLong(position.longitude);
             });
-
+            //It should be possible to have ${long} and ${lat} in the url but can't get it to work :S
             await fetch(`https://opendata-download-metfcst.smhi.se/api/category/pmp3g/version/2/geotype/point/lon/17.64/lat/59.86/data.json`)
                 .then(res => res.json())
                 .then(result => {
