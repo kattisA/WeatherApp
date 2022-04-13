@@ -6,7 +6,7 @@ import {yellow} from "@material-ui/core/colors";
 import {WiRaindrops, WiSleet} from "weather-icons-react";
 
 
-//TODO Explore material ui theme: https://mui.com/customization/color/
+// Explore material ui theme: https://mui.com/customization/color/
 
 var cardStyle = {
     display: 'block',
@@ -15,6 +15,7 @@ var cardStyle = {
     height: '20vw',
     borderRadius: 20,
     backgroundColor: "#abd2e4",
+    
     padding: '20px'
 }
 
@@ -26,24 +27,13 @@ const WeatherCard = ({weatherData}) => (
             <Grid container direction="row" justifyContent="space-between">
                 <Grid item >
                     <Typography variant="h4" component="h2">
-                        <Box sx={{
-                            border: '1px solid',
-                            borderRadius: 4,
-                            borderColor: '#96b7b4' ,
-                            p: 1,
-                            fontFamily: 'Monospace',
-                            fontSize: 'h6.fontSize',
-                            m: 1,
-                            bgcolor:'#bce5e2'
-                        }}>
-                            Uppsala
-                        </Box>
+                    Uppsala
                     </Typography>
-                    <Typography variant="h3" component="h3">
+                    <Typography variant="h3" component="h2">
                         {weatherData.temperature} &deg;C
                     </Typography>
-                    <Typography variant="h6" component="h3" style={{paddingTop:80}}>
-                        <Box sx={{
+                    <Typography align="left" variant="h6" component="h2" style={{paddingTop:80}}>
+                        <Box s={{
                             fontSize: 'h6.fontSize',
                             m: 1,
                             fontStyle: 'italic',
@@ -52,11 +42,10 @@ const WeatherCard = ({weatherData}) => (
                             <div style={{ display: 'flex',
                                 alignItems: 'center',
                                 flexWrap: 'wrap'}}>
-                                <WiRaindrops style={{fill: '#4682B4', paddingBottom:0}} size={50} />
                                 <span>Humidity { weatherData.humidity } %</span>
+                                <WiRaindrops style={{fill: '#4682B4', paddingBottom:0}} size={50} />
                             </div>
                         </Box>
-
                     </Typography>
                 </Grid>
                 <Grid item>

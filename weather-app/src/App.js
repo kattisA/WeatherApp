@@ -32,7 +32,6 @@ const precipitationCats = [
 
 const weatherSituations = getWeatherSituations()
 
-//TODO Add functionality for array with weather situation name = Wsymb2 http://opendata.smhi.se/apidocs/metfcst/parameters.html#parameter-wsymb
 
 
 export default function App() {
