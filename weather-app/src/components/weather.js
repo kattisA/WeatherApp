@@ -2,8 +2,7 @@ import React from 'react';
 //import './styles.css';
 import moment from 'moment';
 import {Card, CardContent, Typography, Grid, Box} from "@material-ui/core";
-import {yellow} from "@material-ui/core/colors";
-import {WiRaindrops, WiSleet} from "weather-icons-react";
+import {WiRaindrops} from "weather-icons-react";
 
 
 // Explore material ui theme: https://mui.com/customization/color/

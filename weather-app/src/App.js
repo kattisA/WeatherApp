@@ -5,6 +5,8 @@ import {getWeatherSituations} from "./components/weatherSituations";
 import background from "./img/ian-dooley-balloons-unsplash.jpg";
 
 import {
+    WiDaySunny,
+    WiDaySunnyOvercast,
     WiNightClear,
     WiCloud,
     WiSleet,
@@ -72,7 +74,9 @@ export default function App() {
 
         switch (weatherSituationVal) {
             case 1:
+                return <WiDaySunny style={{fill: '#f0e68c' }} size={150}/>
             case 2:
+                return <WiDaySunnyOvercast style={{fill: '#f0e68c'}} size={150}/>
             case 3:
                 return <WiDayCloudyHigh style={{fill: '#F0F8FF'}} size={150}/>
             case 4:
