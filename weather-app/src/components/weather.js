@@ -15,6 +15,7 @@ var cardStyle = {
     height: '20vw',
     borderRadius: 20,
     backgroundColor: "#abd2e4",
+    opacity: '0.85',
     
     padding: '20px'
 }
@@ -32,7 +33,7 @@ const WeatherCard = ({weatherData}) => (
                     <Typography variant="h3" component="h2">
                         {weatherData.temperature} &deg;C
                     </Typography>
-                    <Typography align="left" variant="h6" component="h2" style={{paddingTop:80}}>
+                    <Typography align="left" variant="h5" component="h2" style={{paddingTop:80}}>
                         <Box s={{
                             fontSize: 'h6.fontSize',
                             m: 1,

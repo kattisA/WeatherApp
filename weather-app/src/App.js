@@ -2,6 +2,7 @@ import './App.css';
 import React, {useEffect, useState} from "react";
 import Weather from './components/weather';
 import {getWeatherSituations} from "./components/weatherSituations";
+import background from "./img/ian-dooley-balloons-unsplash.jpg";
 
 import {
     WiNightClear,
@@ -18,6 +19,8 @@ import {
 /**
  * Written by Katarina Lejonlid
  * API documentation for SMHI http://opendata.smhi.se/apidocs/metfcst/index.html
+ * Photo by <a href="https://unsplash.com/@sadswim?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">ian dooley</a> on 
+ * <a href="https://unsplash.com/s/photos/sky-background-landscape?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
  */
 
 const precipitationCats = [
@@ -59,8 +62,8 @@ export default function App() {
                 });
         }
         fetchData();
-        // console.log("Latitude is:", lat)
-        // console.log("Longitude is:", long)
+        //console.log("Latitude is:", lat)
+        //console.log("Longitude is:", long)
         //console.log("vad är " + JSON.stringify(data))
     }, [lat,long, data])
 
@@ -127,7 +130,7 @@ export default function App() {
     }
 
   return (
-      <div className="App">
+      <div className="App" style={{ backgroundImage: `url(${background})`}}>
           <h1>Today's Weather</h1>
               {(typeof data.approvedTime != 'undefined') ? (
                   <Weather weatherData={mapWeatherData(data)}/>
