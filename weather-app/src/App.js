@@ -18,6 +18,7 @@ import {
 
 /**
  * Written by Katarina Lejonlid
+ * guided from https://www.freecodecamp.org/news/learn-react-by-building-a-weather-app/
  * API documentation for SMHI http://opendata.smhi.se/apidocs/metfcst/index.html
  * Photo by <a href="https://unsplash.com/@sadswim?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">ian dooley</a> on 
  * <a href="https://unsplash.com/s/photos/sky-background-landscape?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
