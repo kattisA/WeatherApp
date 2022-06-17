@@ -11,7 +11,7 @@ API documentation for SMHI http://opendata.smhi.se/apidocs/metfcst/index.html
 
 ## Getting Started
 
-To start the project type npm start in the console and to stop ctrl + C. 
+After cloning the project run npm install. To start the project type npm start in the console and to stop ctrl + C. 
 
 ### Dependencies
 
