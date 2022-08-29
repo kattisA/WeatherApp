@@ -27,6 +27,10 @@ Use React documentation to install.
 
 Change the city by changing the lat and lon parameters in the fetch url, don't forget to set a new city name!
 
+## Explore the widget live
+
+The widget is deployed using Github Pages: https://kattisa.github.io/WeatherApp/
+
 ## Authors
 
 Written by Katarina Lejonlid
