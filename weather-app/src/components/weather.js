@@ -6,17 +6,14 @@ import {WiRaindrops} from "weather-icons-react";
 
 
 // Explore material ui theme: https://mui.com/customization/color/
+// Using the sx property: https://blog.devgenius.io/how-to-use-the-sx-prop-in-mui-v5-4ccfd588836
 
-var cardStyle = {
+const cardStyle = {
     display: 'block',
-    width: '40vw',
     transitionDuration: '0.3s',
-    height: '20vw',
     borderRadius: 20,
     backgroundColor: "#abd2e4",
     opacity: '0.85',
-    
-    padding: '20px'
 }
 
 
@@ -24,7 +21,7 @@ const WeatherCard = ({weatherData}) => (
 
     <Card style={cardStyle}>
         <CardContent>
-            <Grid container direction="row" justifyContent="space-between">
+            <Grid container direction="row" sx={{justifyContent: {xs: 'center', md: 'space-between'}}}>
                 <Grid item >
                     <Typography variant="h4" component="h2">
                     Uppsala
@@ -32,7 +29,7 @@ const WeatherCard = ({weatherData}) => (
                     <Typography variant="h3" component="h2">
                         {weatherData.temperature} &deg;C
                     </Typography>
-                    <Typography align="left" variant="h5" component="h2" style={{paddingTop:80}}>
+                    <Typography variant="h5" component="h2" style={{paddingTop:80}}>
                         <Box s={{
                             fontSize: 'h6.fontSize',
                             m: 1,
@@ -48,24 +45,21 @@ const WeatherCard = ({weatherData}) => (
                         </Box>
                     </Typography>
                 </Grid>
-                <Grid item>
+                <Grid item sx={{justifyContent: {xs: 'center', md: 'right'}}} >
                     <Typography variant="h5" component="h2">
                         {moment().format('dddd')}, {moment().format('LL')}
                     </Typography>
-                    <Typography align="right">
+                    <Typography>
                         { weatherData.weatherIcon }
                     </Typography>
-                    <Typography variant="h5" component="h2" align="right">
+                    <Typography variant="h5" component="h2" >
                         { weatherData.weatherSituation }
                     </Typography>
-                    <Typography variant="h5" component="h2" align="right">
+                    <Typography variant="h5" component="h2" >
                         { weatherData.precipitation }
                     </Typography>
                 </Grid>
             </Grid>
-
-
-
         </CardContent>
     </Card>
 )
