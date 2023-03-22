@@ -1,0 +1,30 @@
+.main{
+    width: 700px;
+    border-radius: 15px;
+    background-color: #bfbfbf;
+}
+
+.header{
+    background-color: #076890;
+    color: whitesmoke;
+    padding: 10px;
+    font-size: 28px;
+    border-radius: 15px 15px 0 0;
+    font-family: 'Recursive', sans-serif;
+}
+.day{
+    padding: 15px;
+    font-family: 'Recursive', sans-serif;
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.temp{
+    padding: 15px;
+    font-family: 'Recursive', sans-serif;
+    font-size: 18px;
+}
+.flex{
+    display: flex;
+    justify-content: space-between;
+}
